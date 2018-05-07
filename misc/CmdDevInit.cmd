@@ -46,5 +46,4 @@ PROMPT %ConEmuPrompt1%%ConEmuPrompt2%%ConEmuPrompt3%
 goto continue
 
 :continue
-echo %~dp0
 call "%~dp0shell.cmd"
