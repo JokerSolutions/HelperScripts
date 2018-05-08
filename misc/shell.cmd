@@ -79,6 +79,6 @@ goto :continue
 :continue
 @Echo Setting paths
 subst %SubstDrive% %SubstDir%
-set PATH=%SubstDrive%\misc;%path%
+set PATH=%SubstDrive%\misc;%SubstDrive%\apps\chocolatey;%SubstDrive%\apps\eclipse;%path%
 %SubstDrive%
 Echo:%DevEnv% Development environment ready. Type 'quit' to CLEANLY close down the environment
