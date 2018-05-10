@@ -9,13 +9,20 @@
    <An example of using the script>
 #>
 
+#Some Housekeeping stuff
+#Update-Help
+if ($Host.UI.RawUI.WindowTitle -like "*administrator*") {
+    $Host.UI.RawUI.ForegroundColor = "Red"
+}
+
 #Setup Subst options
+#The origin location of the work folder.
 $global:substDir = "z:\work"
-Write-Host($substDir)
-$global:substDrive = "W:"
+#The newly created drive letter that we (temporarily) use for working in
+$global:substDrive = "W"
 
 #Find the bitness of the (Windows) OS and store it in env var AddressWidth
-$global:isWin64=[System.Environment]::Is64BitOperatingSystem
+$isWin64=[System.Environment]::Is64BitOperatingSystem
 $global:addressWidth = $null
 if ($isWin64) {
 	$addressWidth = 64;
@@ -23,4 +30,8 @@ if ($isWin64) {
 	$addressWidth = 32;
 }
 
-Write-Host("The system is $($addressWidth)bit wide")
+subst "$global:substDrive`:" "$($global:substDir)"
+Get-PSDrive | Out-Null
+Push-Location
+Push-Location -Path "$global:substDrive`:"
+Pop-Location
