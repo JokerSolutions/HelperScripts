@@ -77,7 +77,9 @@ goto :continue
 set PATH=%SubstDrive%\php\72;%path%
 goto :continue
 :continue
-@Echo Setting paths
+@Echo Setting paths and aliases
+::Replace exit so it calls our own quit routine and cleans up after itself
+DOSKEY exit=quit
 subst %SubstDrive% %SubstDir%
 set PATH=%SubstDrive%\misc;%SubstDrive%\apps\chocolatey;%SubstDrive%\apps\eclipse;%path%
 %SubstDrive%
