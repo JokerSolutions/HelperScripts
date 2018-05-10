@@ -71,10 +71,10 @@ if %AddressWidth%==64 (
   goto :continue
 )
 :php56
-set PATH=%SubstDrive%\php\56;%path%
+set PATH=%SubstDrive%\apps\php\56;%path%
 goto :continue
 :php72
-set PATH=%SubstDrive%\php\72;%path%
+set PATH=%SubstDrive%\apps\php\72;%path%
 goto :continue
 :continue
 @Echo Setting paths and aliases
